@@ -22,7 +22,7 @@ function SectionHeader({ number, children }: { number: string; children: React.R
 }
 
 function Navbar() {
-  return <header className="site-nav"><a className="brand" href="#top">Thanakit Chupviroj<span>.</span></a><nav className="nav-links" aria-label="Primary navigation">{navItems.map((item, index) => <a key={item} href={`#${item}`}><span>0{index + 1}</span>{item}</a>)}</nav></header>
+  return <header className="site-nav"><nav className="nav-links" aria-label="Primary navigation">{navItems.map((item, index) => <a key={item} href={`#${item}`}><span>0{index + 1}</span>{item}</a>)}</nav></header>
 }
 
 function ProjectPreview({ project }: { project: Project }) {
