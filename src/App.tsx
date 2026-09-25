@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowDownRight, ArrowUpRight, Download, Menu, X } from 'lucide-react'
+import { ArrowDownRight, ArrowUpRight, Download } from 'lucide-react'
 import { projects, type Project } from './data/projects'
 import resumePdf from './assets/resume.pdf.pdf'
 
@@ -24,7 +24,7 @@ function SectionHeader({ number, children }: { number: string; children: React.R
 
 function Navbar() {
   const [open, setOpen] = useState(false)
-  return <header className="site-nav"><a className="brand" href="#top" onClick={() => setOpen(false)}>Thanakit Chupviroj<span>.</span></a><button className="menu-button" aria-label={open ? 'Close menu' : 'Open menu'} onClick={() => setOpen(!open)}>{open ? <X size={20} /> : <Menu size={20} />}</button><nav className={open ? 'nav-links is-open' : 'nav-links'} aria-label="Primary navigation">{navItems.map((item, index) => <a key={item} href={`#${item}`} onClick={() => setOpen(false)}><span>0{index + 1}</span>{item}</a>)}</nav></header>
+  return <header className="site-nav"><a className="brand" href="#top" onClick={() => setOpen(false)}>Thanakit Chupviroj<span>.</span></a><button className="menu-button" type="button" aria-expanded={open} aria-controls="primary-navigation" onClick={() => setOpen(!open)}>{open ? 'CLOSE' : 'MENU'}</button><nav id="primary-navigation" className={open ? 'nav-links is-open' : 'nav-links'} aria-label="Primary navigation">{navItems.map((item, index) => <a key={item} href={`#${item}`} onClick={() => setOpen(false)}><span>0{index + 1}</span>{item}</a>)}</nav></header>
 }
 
 function ProjectPreview({ project }: { project: Project }) {
